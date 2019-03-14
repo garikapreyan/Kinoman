@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment} from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,8 +8,10 @@ import { connect } from 'react-redux';
 
 import { getItem } from './localStorage';
 import Authorization from "./containers/Authorization";
-import MainPage from "./containers/MainPage";
+import MainPage from "./components/MainPage";
 import MoviePage from "./containers/MoviePage";
+import Favourites from './containers/Favourites';
+import Search from './containers/Search';
 
 class App extends Component {
   render() {
@@ -17,12 +19,14 @@ class App extends Component {
     const { isAuth } =this.props;
     return (
       <Router>
-        <div>
-          <Route path='/movies/popular' component={MainPage}/>
-          <Route path='/login' component={Authorization}/>
-          <Route path={`/movies/movie/:id`} component={MoviePage}/>
-          {localIsAuth || isAuth ? <Redirect to='/movies/popular'/> : <Redirect to='/login'/>}
-        </div>
+        <Fragment>
+          <Route path='/Kinoman/movies/popular' component={MainPage}/>
+          <Route path='/Kinoman/login' component={Authorization}/>
+          <Route path={`/Kinoman/movie/:id`} component={MoviePage}/>
+          <Route path={'/Kinoman/favourites'} component={Favourites} />
+          <Route path={'/Kinoman/search/:query'} component={Search}/>
+          {localIsAuth || isAuth ? <Redirect to='/Kinoman/movies/popular'/> : <Redirect to='/Kinoman/login'/>}
+        </Fragment>
       </Router>
     );
   }

@@ -3,16 +3,35 @@ import injectSheet from 'react-jss';
 import { Link } from 'react-router-dom';
 
 import styles from './styles';
-import {setItem} from "../../localStorage";
+import {setItem} from '../../localStorage';
 
 class NavBar extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      query: ''
+    };
+
     this.handleLogOutSubmit = this.handleLogOutSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      query: e.target.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if(this.state.query)
+      this.props.history.push(`/Kinoman/search/${this.state.query}`);
   }
 
   handleLogOutSubmit() {
+    console.log('fdjsf');
     const curUser = {
       username: '',
       password: '',
@@ -26,15 +45,12 @@ class NavBar extends Component {
     const { classes } = this.props;
     return (
       <nav className={`navbar fixed-top navbar-dark bg-dark`}>
-        <Link to={'/movies/popular'} className="navbar-brand">KINOMAN</Link>
-        <div className={`${classes.searchBar} input-group ml-auto pr-5`}>
-          <input type="text" className="form-control" placeholder="Search"
-                 aria-label="Recipient's username" aria-describedby="basic-addon2"/>
-          <div className="input-group-append">
-            <button className="btn btn-outline-none btn-dark" type="button">Search</button>
-          </div>
-        </div>
-        <button className={`btn btn-outline-none btn-dark`} onClick={this.handleLogOutSubmit}>Log Out</button>
+        <Link to={'/Kinoman/movies/popular'} className={'navbar-brand'}>KINOMAN</Link>
+        <Link to={'/Kinoman/favourites'} className={`${classes.navbarItem} ${classes.floatLeft}`}>Favourites</Link>
+        <form onSubmit={this.handleSubmit} className={classes.form}>
+          <input className={classes.input} placeholder={'Search'} onChange={this.handleChange}/>
+        </form>
+        <Link to={'/Kinoman/login'} className={classes.navbarItem} onClick={this.handleLogOutSubmit}>Log Out</Link>
       </nav>
     );
   }

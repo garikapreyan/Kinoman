@@ -31,10 +31,10 @@ class Pagination extends Component {
     return (
       <ul className={`${classes.pages} pagination`}>
           <li className={`${classes.movie} page-item`}>
-            <Link to={`/movies/popular?page=${curPage === 1 ? curPage : curPage-1}`} className={`btn btn-outline-none btn-dark`} onClick={this.handlePrevClick}>Previous</Link>
+            <Link to={`/Kinoman/movies/popular?page=${curPage === 1 ? curPage : curPage-1}`} className={`btn btn-outline-none btn-dark`} onClick={this.handlePrevClick}>Previous</Link>
           </li>
         <li className='page-item'>
-          <Link to={`/movies/popular?page=${curPage+1}`} className={`${classes.movie} btn btn-outline-none btn-dark`} onClick={this.handleNextClick}>Next</Link>
+          <Link to={`/Kinoman/movies/popular?page=${curPage+1}`} className={`${classes.movie} btn btn-outline-none btn-dark`} onClick={this.handleNextClick}>Next</Link>
         </li>
       </ul>);
   }

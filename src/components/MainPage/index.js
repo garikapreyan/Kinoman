@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 
 import NavBar from '../../containers/NavBar';
-import Movies from '../Movies';
+import Movies from '../../containers/Movies';
 
 class MainPage extends Component {
   render() {
-    const { posts } = this.props;
     return (
-      <div>
-        <NavBar/>
-        <Movies posts={posts}/>
-      </div>
+      <Fragment>
+        <NavBar history={this.props.history}/>
+        <Movies/>
+      </Fragment>
     );
   }
 }

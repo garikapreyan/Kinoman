@@ -1,23 +1,47 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import injectSheet from 'react-jss';
-import { Link } from 'react-router-dom';
 
 import Pagination from "../Pagination";
 import styles from './styles';
+import Movie from "../../containers/Movie";
+import Loader from "../Loader";
 
 class Movies extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFavourite: false
+    };
+  }
+
+  componentDidMount() {
+    const { getMovies, curPage, favourites } = this.props;
+    console.log('Favs',favourites);
+    getMovies(curPage, favourites);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { getMovies, curPage, favourites } = this.props;
+    if(prevProps.curPage !== curPage) {
+      getMovies(curPage, favourites);
+    }
+  }
+
   render() {
-    const { classes, posts } = this.props;
+    const { classes, movies, isMoviesFetching } = this.props;
     return (
-      <div>
-        <div className={classes.popular}>
-          {posts.map((movie, i) => (<Link to={`movie/${movie.id}`} key={i} className={classes.movie} onClick={this.handleMovieSubmit}>
-              <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt={movie.title}/>
-              <p className={classes.movieName}>{movie.title}</p>
-            </Link>)
-          )}</div>
-        <div><Pagination/></div>
-      </div>
+      <Fragment>
+        {
+          !isMoviesFetching ? (
+            <div className={classes.popular}>
+              {movies.map((movie, i) => <Movie movie={movie} key={i}/>)}
+              <Pagination/>
+            </div>
+          ) : (
+            <Loader/>
+          )
+        }
+      </Fragment>
     );
   }
 }

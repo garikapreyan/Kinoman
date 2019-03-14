@@ -1,22 +1,24 @@
+import backgroundImage from '../../images/login-back.jpg';
+
 export default {
   popular: {
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    position: "relative",
-    marginTop: "100px"
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    position: 'relative',
+    paddingTop: '100px',
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed'
   },
-
-  movie: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textDecoration: "none",
-    height: "350px",
-    width: "250px"
-  },
-
-  movieName: {
-    textAlign: "center"
+  empty: {
+    height: '100%',
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed'
   }
 };
