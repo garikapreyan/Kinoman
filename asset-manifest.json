@@ -1,7 +1,16 @@
 {
-  "main.css": "static/css/main.4ef9925f.css",
-  "main.css.map": "static/css/main.4ef9925f.css.map",
-  "main.js": "static/js/main.01b77003.js",
-  "main.js.map": "static/js/main.01b77003.js.map",
-  "static\\media\\login-back.jpg": "static/media/login-back.4de70e25.jpg"
+  "files": {
+    "main.css": "/Kinoman/static/css/main.294c932c.chunk.css",
+    "main.js": "/Kinoman/static/js/main.e4b27bc6.chunk.js",
+    "main.js.map": "/Kinoman/static/js/main.e4b27bc6.chunk.js.map",
+    "runtime~main.js": "/Kinoman/static/js/runtime~main.1c4b6da3.js",
+    "runtime~main.js.map": "/Kinoman/static/js/runtime~main.1c4b6da3.js.map",
+    "static/js/2.c4f5d33d.chunk.js": "/Kinoman/static/js/2.c4f5d33d.chunk.js",
+    "static/js/2.c4f5d33d.chunk.js.map": "/Kinoman/static/js/2.c4f5d33d.chunk.js.map",
+    "index.html": "/Kinoman/index.html",
+    "precache-manifest.c7b65ae0ae3a662aa3e75f9393a86b47.js": "/Kinoman/precache-manifest.c7b65ae0ae3a662aa3e75f9393a86b47.js",
+    "service-worker.js": "/Kinoman/service-worker.js",
+    "static/css/main.294c932c.chunk.css.map": "/Kinoman/static/css/main.294c932c.chunk.css.map",
+    "static/media/styles.css": "/Kinoman/static/media/login-back.4de70e25.jpg"
+  }
 }
